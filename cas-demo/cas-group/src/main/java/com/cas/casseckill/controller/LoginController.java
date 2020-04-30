@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * @description
  * @date 2020/4/30
  */
-@Controller
+@RestController
 public class LoginController {
     @Value("${spring.cas.casServerUrl}")
     private String casServerUrl;
@@ -27,6 +28,10 @@ public class LoginController {
         session.invalidate();
         return "redirect:http://" + casServerUrl + "/cas/logout?service=http://" + clientHostUrl + ":" + port
                 + "/logoutSucess";
+    }
+    @GetMapping("/index")
+    public String index() {
+        return "所属";
     }
     /**
      * 退出成功页
