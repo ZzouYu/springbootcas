@@ -60,7 +60,7 @@ public class CasConfig {
         filterRegistration.setEnabled(casEnabled);
         filterRegistration.addUrlPatterns("/*" );
         filterRegistration.addInitParameter("casServerUrlPrefix" ,"http://"+serverUrl+"cas");
-        filterRegistration.setOrder(2);
+        filterRegistration.setOrder(1);
         return filterRegistration ;
     }
 
