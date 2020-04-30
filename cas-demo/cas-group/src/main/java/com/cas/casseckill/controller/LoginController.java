@@ -2,10 +2,7 @@ package com.cas.casseckill.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +11,7 @@ import javax.servlet.http.HttpSession;
  * @description
  * @date 2020/4/30
  */
-@RestController
+@Controller
 public class LoginController {
     @Value("${spring.cas.casServerUrl}")
     private String casServerUrl;
@@ -30,6 +27,7 @@ public class LoginController {
                 + "/logoutSucess";
     }
     @GetMapping("/index")
+    @ResponseBody
     public String index() {
         return "所属";
     }
